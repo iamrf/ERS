@@ -26,6 +26,7 @@ class User(models.Model):
     name = models.CharField(max_length=200, verbose_name='نام و نام خانوادگی')
     tell = models.CharField(max_length=13, verbose_name='شماره موبایل')
     address = models.CharField(max_length=300, blank=True, verbose_name='آدرس')
+    desc = models.TextField(verbose_name='توضیحات اضافه', blank=True)
     created = models.DateTimeField(auto_now_add=timezone.now, editable=False, verbose_name='زمان ثبت')
     last_modified = models.DateTimeField(auto_now=timezone.now, verbose_name='آخرین تغییر')
 
