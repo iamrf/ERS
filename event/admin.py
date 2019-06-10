@@ -7,15 +7,15 @@ from . import models
 class EventAdmin(admin.ModelAdmin):
     # fields = ()
     list_display = ('name', 'location', 'date', 'duration', 'price', 'desc', 'created', 'last_modified')
-    list_filter = ('date', 'location', 'duration')
+    list_filter = ('date', 'location', 'duration', 'price')
     search_fields = ['name', 'location', 'date']
     date_hierarchy = 'date'
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('name', 'tell', 'address', 'desc', 'created', 'last_modified')
+    list_display = ('name', 'tell', 'email', 'address', 'desc', 'created', 'last_modified')
     list_filter = ('event', 'created')
-    search_fields = ('name', 'tell', 'address', 'created')
+    search_fields = ('name', 'tell', 'address', 'created', 'desc')
     date_hierarchy = 'created'
     filter_horizontal = ('event',)
 

@@ -6,6 +6,7 @@
         <a href="{{ event.pk }}">{{ event }}</a>
         <p>
             {{ event.date }} - {{ event.duration }} روزه    <br>
+            هزینه ثبت نام: {{ event.price }} تومان<br>
             <a href="{{ event.pk }}">اظلاعات بیشتر</a>
         </p>
     </li>
@@ -16,3 +17,6 @@
         Sorry... Not any Event found
     </p>
 {% endif %}
+
+<hr>
+<a href="{% url 'event:user-register' %}">ثبت نام</a>

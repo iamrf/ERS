@@ -1,13 +1,16 @@
 {% if event %}
     <p>
         <h2>
-            {{ event.date }}
+            {{ event.name }}
         </h2>
         <p>
         موقعیت : {{ event.location }}
         </p>
         <p>
             زمان : {{ event.date }} - {{ event.duration }} روزه
+        </p>
+        <p>
+            هزینه : {{ event.price }} تومان
         </p>
         {% if event.desc %}
             <p>
@@ -24,4 +27,5 @@
     </p>
 {% endif %}
 
+<hr>
 <a href="{% url 'event:index' %}">بازگشت</a>
