@@ -28,7 +28,7 @@ def user_register(request):
         # check whether it's valid:
         if form.is_valid():
             # process the data in form.cleaned_data as required
-            # ...
+            form.save()
             # redirect to a new URL:
             return HttpResponseRedirect('completed/')
 
@@ -41,6 +41,6 @@ def user_register(request):
 
 def completed_register(request):
     new_user = forms.UserForm(request.POST)
-    if new_user.is_valid():
-        new_user.save()
+    # if new_user.is_valid():
+    #    new_user.save()
     return render(request, 'event/completed.html', {'user': new_user})

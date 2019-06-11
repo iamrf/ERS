@@ -1,6 +1,7 @@
 from django.db import models
 from django.forms import ModelForm
 from django.utils import timezone
+from . import script
 
 # Create your models here.
 
@@ -36,6 +37,14 @@ class Event(models.Model):
         blank=True,
     )
 
+    pic = models.ImageField(
+        upload_to='event/',
+        verbose_name='تصویر',
+        max_length=500,
+        blank=True,
+        null=True,
+        )
+
     created = models.DateTimeField(
         auto_now_add=timezone.now,
         editable=False,
@@ -67,13 +76,17 @@ class User(models.Model):
 
     tell = models.CharField(
         max_length=13,
-        verbose_name='شماره موبایل',
+        verbose_name='شماره تلفن همراه',
     )
 
     email = models.EmailField(
         blank=True,
         verbose_name='پست الکترونیک',
     )
+
+    age = models.IntegerField(
+        verbose_name='سن',
+        )
 
     address = models.CharField(
         max_length=300,

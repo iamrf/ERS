@@ -8,5 +8,5 @@ class UserForm(forms.ModelForm):
         fields = '__all__'
         # exclude = []
         widgets = {
-            #'event': forms.CheckboxSelectMultiple,
+            'event': forms.CheckboxSelectMultiple,
         }

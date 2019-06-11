@@ -13,7 +13,7 @@ class EventAdmin(admin.ModelAdmin):
 
 
 class UserAdmin(admin.ModelAdmin):
-    list_display = ('name', 'tell', 'email', 'address', 'desc', 'created', 'last_modified')
+    list_display = ('name', 'tell', 'email', 'age', 'address', 'desc', 'created', 'last_modified')
     list_filter = ('event', 'created')
     search_fields = ('name', 'tell', 'address', 'created', 'desc')
     date_hierarchy = 'created'

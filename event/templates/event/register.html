@@ -1,9 +1,12 @@
-<form action="completed/" method="post">
+<form action="" method="post">
     {% csrf_token %}
     {% for field in form %}
     <p>
-        {{ field.label }}<br>
-        {{ field }}
+        {{ field.errors }}
+        {{ field.label_tag }} <br> {{ field }}
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
     </p>
     {% endfor %}
     <input type="submit" value="ثبت نام">
