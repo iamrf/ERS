@@ -40,4 +40,7 @@ def user_register(request):
 
 
 def completed_register(request):
-    return render(request, 'event/completed.html')
+    new_user = forms.UserForm(request.POST)
+    if new_user.is_valid():
+        new_user.save()
+    return render(request, 'event/completed.html', {'user': new_user})

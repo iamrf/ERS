@@ -1,12 +1,12 @@
-from django.forms import Form, ModelForm, CheckboxSelectMultiple
+from django import forms
 from . import models
 
 
-class UserForm(ModelForm):
+class UserForm(forms.ModelForm):
     class Meta:
         model = models.User
         fields = '__all__'
         # exclude = []
         widgets = {
-            'event': CheckboxSelectMultiple,
+            #'event': forms.CheckboxSelectMultiple,
         }

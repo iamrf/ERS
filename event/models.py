@@ -57,7 +57,7 @@ class Event(models.Model):
 class User(models.Model):
     event = models.ManyToManyField(
         Event,
-        verbose_name='رویداد مورد نظر',
+        verbose_name='رویداد ها',
     )
 
     name = models.CharField(
@@ -98,7 +98,7 @@ class User(models.Model):
     )
 
     class Meta:
-        ordering = ('last_modified',)
+        ordering = ('-last_modified',)
 
     def __str__(self):
         return self.name
