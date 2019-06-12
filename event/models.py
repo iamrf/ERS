@@ -41,6 +41,11 @@ class Event(models.Model):
         upload_to='event/',
         verbose_name='تصویر',
         max_length=500,
+        )
+    picv = models.ImageField(
+        upload_to='event/',
+        verbose_name='تصویر-عمودی',
+        max_length=500,
         blank=True,
         null=True,
         )

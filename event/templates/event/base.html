@@ -1,0 +1,46 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            {% block title %}
+                تور بُ
+            {% endblock %}
+        </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'event/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'event/css/main.css' %}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="{% static 'event/js/script.js' %}"></script>
+        <script src="https://kit.fontawesome.com/ce3be143e1.js"></script>
+    </head>
+
+    <body>
+
+        <header>
+            {% block nav %}     {% endblock %}
+        </header>
+
+        <section>
+            <header>
+                {% block sec-header %}  {% endblock %}
+            </header>
+            <div class="clearfix"></div>
+            <article>
+                {% block sec-article %}     {% endblock %}
+            </article>
+            <div class="clearfix"></div>
+            <footer>
+                {% block sec-footer %}  {% endblock %}
+            </footer>
+        </section>
+
+        <footer>
+            {% block footer %}  {% endblock %}
+        </footer>
+
+    </body>
+</html>

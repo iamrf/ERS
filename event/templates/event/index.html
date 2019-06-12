@@ -1,22 +1,32 @@
-{% if events %}
-    <h2>رویدادهای پیش رو</h2>
-    <ul>
-        {% for event in events %}
-    <li>
-        <a href="{{ event.pk }}">{{ event }}</a>
-        <p>
-            {{ event.date }} - {{ event.duration }} روزه    <br>
-            هزینه ثبت نام: {{ event.price }} تومان<br>
-            <a href="{{ event.pk }}">اظلاعات بیشتر</a>
-        </p>
-    </li>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>
-        Sorry... Not any Event found
-    </p>
-{% endif %}
+{% extends 'event/base.html' %}
 
-<hr>
-<a href="{% url 'event:user-register' %}">ثبت نام</a>
+{% block title %}
+    تور بُ - رویداد ها
+{% endblock %}
+
+
+{% block nav %}
+  {% include 'event/nav.html' %}
+{% endblock %}
+
+
+{% block sec-article %}
+
+     {% if events %}         
+      <!--    carousel    -->
+        {% include 'event/carousel.html' %}
+      <!--    End carousel    -->
+        {% else %}
+          <p>
+              <h2>
+                  متاسفانه هیج رویدادی یافت نشد...
+              </h2>
+          </p>
+        {% endif %}
+
+{% endblock %}
+
+
+{% block footer %}
+  {% include 'event/footer.html' %}
+{% endblock %}

@@ -12,6 +12,7 @@
         <p>
             هزینه : {{ event.price }} تومان
         </p>
+    
         {% if event.desc %}
             <p>
                 <h4>
@@ -21,8 +22,10 @@
             </p>
         {% endif %}
 
-        <img src="{{ event.pic.url }}" alt="{{ event.name }}">
-
+        {% if event.pic %}
+            <img src="{{ event.pic.url }}" alt="{{ event.name }}">
+        {% endif %}
+    
     </p>
 {% else %}
     <p>
