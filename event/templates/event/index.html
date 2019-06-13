@@ -10,19 +10,19 @@
 {% endblock %}
 
 
-{% block sec-article %}
+{% block article %}
 
-     {% if events %}         
+    {% if events %}         
       <!--    carousel    -->
         {% include 'event/carousel.html' %}
       <!--    End carousel    -->
-        {% else %}
-          <p>
-              <h2>
-                  متاسفانه هیج رویدادی یافت نشد...
-              </h2>
-          </p>
-        {% endif %}
+    {% else %}
+      <p>
+          <h2>
+              متاسفانه هیج رویدادی یافت نشد...
+          </h2>
+      </p>
+    {% endif %}
 
 {% endblock %}
 

@@ -16,6 +16,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="{% static 'event/js/script.js' %}"></script>
         <script src="https://kit.fontawesome.com/ce3be143e1.js"></script>
+        {% block head %}    {% endblock %}
     </head>
 
     <body>
@@ -30,7 +31,7 @@
             </header>
             <div class="clearfix"></div>
             <article>
-                {% block sec-article %}     {% endblock %}
+                {% block article %}     {% endblock %}
             </article>
             <div class="clearfix"></div>
             <footer>

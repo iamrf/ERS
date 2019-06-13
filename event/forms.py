@@ -5,7 +5,7 @@ from . import models
 class UserForm(forms.ModelForm):
     class Meta:
         model = models.User
-        fields = '__all__'
+        fields = ('event', 'name', 'tell', 'age')
         # exclude = []
         widgets = {
             'event': forms.CheckboxSelectMultiple,

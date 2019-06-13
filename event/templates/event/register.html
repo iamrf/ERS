@@ -1,16 +1,51 @@
-<form action="" method="post">
-    {% csrf_token %}
-    {% for field in form %}
-    <p>
-        {{ field.errors }}
-        {{ field.label_tag }} <br> {{ field }}
-        {% if field.help_text %}
-        <p class="help">{{ field.help_text|safe }}</p>
-        {% endif %}
-    </p>
-    {% endfor %}
-    <input type="submit" value="ثبت نام">
-</form>
+{% extends 'event/base.html' %}
 
-<hr>
-<a href="{% url 'event:index' %}">بازگشت</a>
+{% block title %}
+    تور بُ - ثبت نام رویداد
+{% endblock %}
+
+{% block nav %}
+    {% include 'event/nav.html' %}
+{% endblock %}
+
+{% block article %}
+    <div class="article-main register">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="register-head"><h1>ثبت نام در رویداد</h1></div>
+                
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {% for field in form %}
+                        <p>
+                            {{ field.errors }}
+                            {{ field.label_tag }} <br> {{ field }}
+                            {% if field.help_text %}
+                            <p class="help">{{ field.help_text|safe }}</p>
+                            {% endif %}
+                        </p>
+                        {% endfor %}
+                        <input type="submit" value="ثبت نام" class="btn btn-danger btn-block">
+                    </form>
+                
+                </div>
+                <div class="col-md-6">
+                    <div class="register-head">
+                        <h2>راهنمای ثبت نام</h2>
+                    </div>
+                    <p>
+                        * ابتدا رویدادی که قصد ثبت نام در آن دارید را انتخاب نمایید (انتخاب چند گزینه مجاز می باشد). <br>
+                        * نام و نام خانوادگی خود را ترجیحا به فارسی وارد نمایید.    <br>
+                        * سن خود را وارد کنید.  <br>
+                        <span style='color:red;'>* پر کردن همه گزینه های مذکور اجباری است.</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {% include 'event/footer.html' %}
+{% endblock %}

@@ -5170,10 +5170,9 @@ button.close {
 
 .carousel-caption {
   position: absolute;
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.7);
   bottom: 0rem;
-  right: 0rem;
-  left: 0rem;
+  width: 100%;
   z-index: 10;
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;

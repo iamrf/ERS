@@ -1,37 +1,85 @@
+{% extends 'event/base.html' %}
+
 {% if event %}
-    <p>
-        <h2>
-            {{ event.name }}
-        </h2>
-        <p>
-        موقعیت : {{ event.location }}
-        </p>
-        <p>
-            زمان : {{ event.date }} - {{ event.duration }} روزه
-        </p>
-        <p>
-            هزینه : {{ event.price }} تومان
-        </p>
-    
-        {% if event.desc %}
-            <p>
+
+{% block title %}
+    تور بُ - {{ event.name }}
+{% endblock %}
+
+{% block nav %}
+    {% include 'event/nav.html' %}
+{% endblock %}
+
+{% block article %}
+<div class='article-main'>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4 article-box">
+                <p>
+                    <h2>
+                        {{ event.name }}
+                    </h2>
+                </p>
+                <p>
+                    <h4>
+                        <i class="fas fa-map-marked-alt"></i> &nbsp;&nbsp; {{ event.location }}
+                    </h4>
+                </p>
+                <p><br>
+                    <i class="fas fa-calendar-alt"></i> &nbsp;&nbsp; {{ event.date }}
+                </p>
+                <p>
+                    <i class="fas fa-bell"></i>  &nbsp;&nbsp; {{ event.duration }} روزه
+                </p>
+                <h4 style='color:red;'>
+                    <i class="fas fa-credit-card"></i> &nbsp;&nbsp; {{ event.price }} تومان
+                </h4><br>
+                <a href="{% url 'event:user-register' %}" class="btn btn-warning btn-block"> ثبت نام </a>
+            </div>
+            <div class="col-md-4 article-box">
+                {% if event.desc %}
                 <h4>
-                    توضیحات
+                    توضیحات بیشتر
                 </h4>
-                {{ event.desc}}
-            </p>
-        {% endif %}
+                <p>
+                    {{ event.desc }}
+                </p>
+                {% endif %}
+            </div>
+                {% if event.lat %}
+                {% if event.lng %}
+            <div id="googleMap" class="col-md-4 article-box">
+                <script>
+                    function myMap() {
+                    var mapProp= {
+                        center:new google.maps.LatLng({{ event.lat }},{{ event.lng}}),
+                        zoom:5,
+                    };
+                    var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                    }
+                </script>    
+                <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+        <div class="clearfix"></div>
+        <div class="row row-pic">
+            <div class="col-md-8 article-pic-box">
+                <img src="{{ event.pic.url }}" class="img-fit">
+            </div>
+            {% if event.picv %}
+            <div class="col-md-4 article-pic-box">
+                <img src="{{ event.picv.url }}">
+            </div>
+            {% endif %}
+        </div>
+    </div>    
+</div>
+{% endblock %}
 
-        {% if event.pic %}
-            <img src="{{ event.pic.url }}" alt="{{ event.name }}">
-        {% endif %}
-    
-    </p>
-{% else %}
-    <p>
-        not Event found
-    </p>
+{% block footer %}
+    {% include 'event/footer.html' %}
+{% endblock %}
+
 {% endif %}
-
-<hr>
-<a href="{% url 'event:index' %}">بازگشت</a>

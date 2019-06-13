@@ -37,6 +37,16 @@ class Event(models.Model):
         blank=True,
     )
 
+    lat = models.FloatField(
+        blank=True,
+        verbose_name='عرض جغرافیایی',
+    )
+
+    lng = models.FloatField(
+        blank=True,
+        verbose_name='طول جغرافیایی',
+    )
+
     pic = models.ImageField(
         upload_to='event/',
         verbose_name='تصویر',
