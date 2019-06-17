@@ -26,7 +26,7 @@
                     </h4>
                 </p>
                 <p><br>
-                    <i class="fas fa-calendar-alt"></i> &nbsp;&nbsp; {{ event.date }}
+                    <i class="fas fa-calendar-alt"></i> &nbsp;&nbsp; {{ event.date_fa }}
                 </p>
                 <p>
                     <i class="fas fa-bell"></i>  &nbsp;&nbsp; {{ event.duration }} روزه
@@ -42,7 +42,7 @@
                     توضیحات بیشتر
                 </h4>
                 <p>
-                    {{ event.desc }}
+                    {{ event.desc|linebreaks }}
                 </p>
                 {% endif %}
             </div>
@@ -58,21 +58,35 @@
                     var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
                     }
                 </script>    
-                <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY&callback=myMap"></script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAggmQ-HNol_aJcWNmaU2jv9WIc57__bhc&callback=myMap"></script>
                 {% endif %}
                 {% endif %}
             </div>
         </div>
         <div class="clearfix"></div>
         <div class="row row-pic">
-            <div class="col-md-8 article-pic-box">
-                <img src="{{ event.pic.url }}" class="img-fit">
+            <div class="col-md-12">
+                
+                    <div class="album-row">
+                            <div class="album-column">
+                              <img src="{{ event.pic.url}}" class="img-fit" alt="{{ event.name}}" onclick="myFunction(this);">
+                            </div>
+                        {% if event.picv %}
+                            <div class="album-column">
+                              <img src="{{ event.picv.url }}" class="img-fit"  alt="{{ event.name }}" onclick="myFunction(this);">
+                            </div>
+                        {% endif %}
+                    </div>  
+                          <!-- The expanding image container -->
+                          <div class="album-container">
+                            <!-- Close the image -->
+                            <span onclick="this.parentElement.style.display='none'" class="album-closebtn">&times;</span>
+                            <!-- Expanded image -->
+                            <img id="expandedImg" class ="img-prev img-fit">
+                            <!-- Image text -->
+                            <div id="album-imgtext"></div>
+                          </div>
             </div>
-            {% if event.picv %}
-            <div class="col-md-4 article-pic-box">
-                <img src="{{ event.picv.url }}">
-            </div>
-            {% endif %}
         </div>
     </div>    
 </div>

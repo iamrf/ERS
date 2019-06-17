@@ -120,10 +120,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 
 # Define Static Path for linking in CSS file
-STATIC_PATH = os.path.join(BASE_DIR, '../static')
+STATIC_PATH = os.path.join(BASE_DIR, 'event/static/')
 
 STATICFILES_DIRS = (
    STATIC_PATH,

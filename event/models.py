@@ -17,19 +17,25 @@ class Event(models.Model):
         verbose_name='مکان',
     )
 
+    date_fa = models.CharField(
+        max_length=100,
+        verbose_name='تاریخ فارسی',
+        default='آخر این هفته'
+    )
+
     date = models.DateTimeField(
         verbose_name='زمان',
     )
 
     duration = models.IntegerField(
-        verbose_name='مدت',
+        verbose_name='مدت/ روز',
         default=1,
     )
 
     price = models.CharField(
         max_length=100,
         default='رایگان',
-        verbose_name='هزینه ثبت نام',
+        verbose_name='هزینه ثبت نام/ تومان',
     )
 
     desc = models.TextField(
@@ -39,11 +45,13 @@ class Event(models.Model):
 
     lat = models.FloatField(
         blank=True,
+        null=True,
         verbose_name='عرض جغرافیایی',
     )
 
     lng = models.FloatField(
         blank=True,
+        null=True,
         verbose_name='طول جغرافیایی',
     )
 

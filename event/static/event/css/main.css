@@ -14,10 +14,14 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body{
     direction: rtl;
     font-family: 'rf','ubuntu', Tahoma, 'Segoe UI', Verdana, sans-serif;
-    background: rgb(235, 235, 235) url("../images/bgs.jpg") no-repeat;
+    background: #EBEBEB;
     transition: .5s;
     overflow-x: hidden;
     font-size: 1rem;
@@ -30,6 +34,7 @@ body{
 section {
     margin: 0;
     padding: 0;
+    background: #222222;
 }
 
 section:after {
@@ -44,9 +49,10 @@ section:after {
     display: table;
 }
 
-.fit-height{
+.full-view {
     height: 100vh;  /* it means 100% viewport height */
     height: 100%;   /* code on JQuery */
+    width : 100%;
 }
 
 /* for js Full cover image */
@@ -127,13 +133,67 @@ ul, li {
     min-height: 30rem;
 }
 
-.row-pic {
-    padding: 2rem 0 0 0;
-}
-.article-pic-box {
-    height: 35rem;
-    display: block;
+
+ /* The grid: Four equal columns that floats next to each other */
+ .album-column {
+    float: right;
+    width: 25%;
+    height: 25rem;
+    padding: .1rem;
+  }
+  
+  /* Style the images inside the grid */
+  .album-column img {
+    opacity: 0.8;
+    cursor: pointer;
+  }
+  
+  .album-column img:hover {
+    opacity: 1;
+  }
+  
+  /* Clear floats after the columns */
+  .album-row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* The expanding image container (positioning is needed to position the close button and the text) */
+  .album-container {
+    position: relative;
+    display: none;
+  }
+  
+  /* Expanding image text */
+  #album-imgtext {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
+    color: white;
+    font-size: 1.5rem;
+    background: #222222d8;
+    padding: 1.5rem;
+  }
+  
+  /* Closable button inside the image */
+  .album-closebtn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    color: white;
+    cursor: pointer;
+    font-size: 3rem;
+    background: #222222d8;
+    border-radius: 1rem;
+    padding: .3rem .5rem;
+  } 
+
+.img-prev {
+    width: 100%;
     overflow: hidden;
+    height: 80vh;
+    padding: .4rem;
 }
 
 .register{

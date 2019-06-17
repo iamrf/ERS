@@ -6,7 +6,7 @@ from . import models
 
 class EventAdmin(admin.ModelAdmin):
     # fields = ()
-    list_display = ('name', 'location', 'date', 'duration', 'price', 'desc', 'created', 'last_modified')
+    list_display = ('name', 'location', 'date', 'duration', 'price', 'created', 'last_modified')
     list_filter = ('date', 'location', 'duration', 'price')
     search_fields = ['name', 'location', 'date']
     date_hierarchy = 'date'

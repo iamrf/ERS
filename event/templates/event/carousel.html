@@ -2,9 +2,13 @@
   <div class="row">
     <div id="demo" class="carousel slide" data-ride="carousel">
             <ul class="carousel-indicators">
-              <li data-target="#demo" data-slide-to="0" class="active"></li>
-              <li data-target="#demo" data-slide-to="1"></li>
-              <li data-target="#demo" data-slide-to="2"></li>
+              {% for event in events %}
+                {% if forloop.first %}
+              <li data-target="#demo" data-slide-to="{{ forloop.counter0 }}" class="active"></li>
+                {% else %}
+              <li data-target="#demo" data-slide-to="{{ forloop.counter0 }}"></li>
+                {% endif %}
+              {% endfor %}
             </ul>
             <div class="carousel-inner">
 
@@ -22,9 +26,9 @@
 
                 <div class="carousel-caption">
                   <h3>{{ event.name }} - {{ event.duration }} روزه</h3>
-                  <p>{{ event.location}} | {{ event.date }}</p>
+                  <p>{{ event.location}} | {{ event.date_fa }}</p>
                   <p>
-                    <a href="{{ event.pk }}" class='btn btn-primary'>مشاهده جزییات</a> &nbsp; 
+                    <a href="events/{{ event.pk }}" class='btn btn-primary'>مشاهده جزییات</a> &nbsp; 
                     <a href="{% url 'event:user-register' %}" class="btn btn-danger">ثبت نام</a>
                   </p> 
                 </div>   
@@ -43,9 +47,9 @@
                 
                 <div class="carousel-caption">
                   <h3>{{ event.name }} - {{ event.duration }} روزه</h3>
-                  <p>{{ event.location}} | {{ event.date }}</p>
+                  <p>{{ event.location}} | {{ event.date_fa }}</p>
                   <p>
-                    <a href="{{ event.pk }}" class='btn btn-primary'>مشاهده جزییات</a> &nbsp; 
+                    <a href="events/{{ event.pk }}" class='btn btn-primary'>مشاهده جزییات</a> &nbsp; 
                     <a href="{% url 'event:user-register' %}" class="btn btn-danger">ثبت نام</a>
                   </p>  
                 </div>   
